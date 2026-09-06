@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#05070c" />
+  <meta name="description" content="Fleet X Logistics — premium truck dispatching support for owner-operators and fleets." />
+  <title>Fleet X Logistics — Every Mile, Orchestrated.</title>
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <span class="top-status"><i></i> Carrier-first dispatching</span>
+      <span class="top-copy">Built for owner-operators & growing fleets</span>
+      <a href="#contact">Start onboarding <b>↗</b></a>
+    </div>
+  </header>
+
+  <header class="nav-shell" id="navShell">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <img src="assets/fleetx-mark.png" alt="Fleet X Logistics mark" />
+        <span><b>FLEET X</b><small>LOGISTICS</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav id="siteNav">
+        <a href="#command">Command Center</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-btn">Talk to Dispatch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="networkCanvas" aria-hidden="true"></canvas>
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
+      <div class="hero-lines" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow reveal">Dispatch is not a call center. It is a control system.</div>
+          <h1 class="reveal r1">Every mile,<br><span>orchestrated.</span></h1>
+          <p class="reveal r2">Fleet X Logistics combines load sourcing, rate negotiation, broker communication and trip coordination into one sharp dispatch workflow — so your truck keeps moving with less noise.</p>
+
+          <div class="hero-actions reveal r3">
+            <a href="#contact" class="btn primary">Start with Fleet X <span>↗</span></a>
+            <a href="#command" class="btn ghost">See how we operate</a>
+          </div>
+
+          <div class="hero-proof reveal r4">
+            <div><span>01</span><p>Carrier-controlled<br>load approval</p></div>
+            <div><span>02</span><p>End-to-end<br>load coordination</p></div>
+            <div><span>03</span><p>Equipment-aware<br>load sourcing</p></div>
+          </div>
+        </div>
+
+        <div class="console-wrap reveal r2" aria-label="Illustrative dispatch command center">
+          <div class="console">
+            <div class="console-top">
+              <div class="mini-brand"><img src="assets/fleetx-mark.png" alt=""><span>DISPATCH OS</span></div>
+              <span class="live-pill"><i></i> ACTIVE</span>
+            </div>
+
+            <div class="console-body">
+              <div class="route-panel">
+                <div class="panel-label">CURRENT ROUTE</div>
+                <div class="route-map">
+                  <svg viewBox="0 0 460 250" role="img" aria-label="Illustrative dispatch route">
+                    <defs>
+                      <linearGradient id="routeGlow" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#2f8cff"/>
+                        <stop offset="50%" stop-color="#18d0e8"/>
+                        <stop offset="100%" stop-color="#24d9aa"/>
+                      </linearGradient>
+                      <filter id="glow">
+                        <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                      </filter>
+                    </defs>
+                    <path class="map-line" d="M20 210 C90 170 75 110 145 122 S220 188 280 134 S362 56 440 74" />
+                    <path class="route-line" d="M31 202 C96 168 78 116 148 126 S219 184 282 132 S360 61 429 78" />
+                    <circle class="pulse p1" cx="31" cy="202" r="6"/>
+                    <circle class="pulse p2" cx="429" cy="78" r="6"/>
+                    <g class="truck-dot">
+                      <circle cx="282" cy="132" r="14" fill="#07111e" stroke="url(#routeGlow)" stroke-width="2"/>
+                      <path d="M274 129h9v7h-9zm9 2h5l3 3v2h-8z" fill="#9cf6ff"/>
+                    </g>
+                  </svg>
+                  <div class="city city-a"><small>ORIGIN</small><b>Dallas, TX</b></div>
+                  <div class="city city-b"><small>DESTINATION</small><b>Atlanta, GA</b></div>
+                </div>
+              </div>
+
+              <div class="load-card">
+                <div>
+                  <small>ILLUSTRATIVE LOAD</small>
+                  <h3>Dry Van • 742 mi</h3>
+                  <p>Pickup window · 14:30</p>
+                </div>
+                <div class="load-rate"><small>STATUS</small><b>READY</b></div>
+              </div>
+
+              <div class="console-grid">
+                <div class="metric-card">
+                  <span class="metric-icon">⌁</span>
+                  <small>BROKER</small>
+                  <b>Verified</b>
+                  <em>Carrier packet ready</em>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-icon">↗</span>
+                  <small>RATE</small>
+                  <b>Negotiating</b>
+                  <em>Carrier approval required</em>
+                </div>
+                <div class="metric-card wide">
+                  <div><small>LOAD WORKFLOW</small><b>Search → Negotiate → Confirm → Track</b></div>
+                  <div class="progress"><i></i></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="console-footer">
+              <span>FLEET X / CONTROL ROOM</span>
+              <span>Illustrative interface</span>
+            </div>
+          </div>
+          <div class="floating-chip chip-one"><span>✦</span><div><small>DRIVER FOCUS</small><b>Road, not paperwork</b></div></div>
+          <div class="floating-chip chip-two"><span>↯</span><div><small>WORKFLOW</small><b>Less dead time</b></div></div>
+        </div>
+      </div>
+
+      <div class="hero-bottom container">
+        <span>Scroll to enter the command center</span>
+        <div class="scroll-line"><i></i></div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Services">
+      <div class="marquee-track">
+        <span>LOAD SOURCING</span><b>✦</b>
+        <span>RATE NEGOTIATION</span><b>✦</b>
+        <span>BROKER SETUP</span><b>✦</b>
+        <span>DRIVER SUPPORT</span><b>✦</b>
+        <span>PAPERWORK</span><b>✦</b>
+        <span>TRIP COORDINATION</span><b>✦</b>
+        <span>LOAD SOURCING</span><b>✦</b>
+        <span>RATE NEGOTIATION</span><b>✦</b>
+        <span>BROKER SETUP</span><b>✦</b>
+        <span>DRIVER SUPPORT</span><b>✦</b>
+      </div>
+    </section>
+
+    <section class="command section" id="command">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <span class="section-code">[ 01 / COMMAND CENTER ]</span>
+            <h2>Dispatch with <em>structure.</em><br>Not guesswork.</h2>
+          </div>
+          <p>We built the experience around the work that actually matters between empty and delivered. Clean handoffs. Fast communication. Carrier approval at the center.</p>
+        </div>
+
+        <div class="bento">
+          <article class="bento-card bento-large spotlight-card">
+            <div class="bento-top">
+              <span class="number">01</span>
+              <span class="tag">LOAD INTELLIGENCE</span>
+            </div>
+            <div class="lane-visual">
+              <div class="lane-grid"></div>
+              <svg viewBox="0 0 600 250" aria-hidden="true">
+                <path d="M12 205 C105 170 82 95 170 109 S268 201 354 137 S470 59 585 78" />
+              </svg>
+              <span class="lane-point a"></span><span class="lane-point b"></span><span class="lane-point c"></span>
+              <div class="lane-copy"><strong>Find freight that fits the truck.</strong><p>Equipment, lanes, timing and carrier preferences guide the search.</p></div>
+            </div>
+          </article>
+
+          <article class="bento-card spotlight-card">
+            <div class="bento-top"><span class="number">02</span><span class="tag">NEGOTIATION</span></div>
+            <div class="rate-stack">
+              <div class="rate-row"><span>Broker offer</span><i></i></div>
+              <div class="rate-row active"><span>Counter rate</span><i></i></div>
+              <div class="rate-row"><span>Carrier approval</span><i></i></div>
+            </div>
+            <h3>Make the phone call count.</h3>
+            <p>Clear broker communication, professional rate negotiation and no booking without carrier approval.</p>
+          </article>
+
+          <article class="bento-card spotlight-card">
+            <div class="bento-top"><span class="number">03</span><span class="tag">PAPERWORK</span></div>
+            <div class="doc-stack">
+              <span></span><span></span><span></span>
+              <div class="doc-check">✓</div>
+            </div>
+            <h3>Less paperwork drag.</h3>
+            <p>Carrier packets, confirmations, POD follow-up and load details kept in one cleaner workflow.</p>
+          </article>
+
+          <article class="bento-card bento-wide spotlight-card">
+            <div class="bento-top"><span class="number">04</span><span class="tag">TRIP CONTROL</span></div>
+            <div class="trip-flex">
+              <div>
+                <h3>One dispatch point from pickup to delivery.</h3>
+                <p>Appointment details, broker communication, check calls and trip coordination — organized around the driver.</p>
+              </div>
+              <div class="trip-status">
+                <span class="done"><i>✓</i> Load booked</span>
+                <span class="done"><i>✓</i> Confirmation received</span>
+                <span class="active"><i></i> In transit</span>
+                <span><i></i> Delivery / POD</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="equipment section" id="equipment">
+      <div class="container">
+        <div class="equipment-head">
+          <div>
+            <span class="section-code">[ 02 / EQUIPMENT ]</span>
+            <h2>Built around the way<br><em>you haul.</em></h2>
+          </div>
+          <div class="drag-note">Swipe / drag →</div>
+        </div>
+
+        <div class="equipment-rail" id="equipmentRail">
+          <article class="equip-card">
+            <div class="equip-top"><span>01</span><small>EXPEDITED</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M30 43h125v44H30zM155 55h33l25 22v10h-58zM53 88a14 14 0 1 0 28 0m95 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Sprinter / Cargo Van</h3><p>Expedited and flexible small-freight dispatching.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>02</span><small>OPEN DECK</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M24 72h150M26 55h60l23 17M174 47h28l25 25v15h-53zM53 88a14 14 0 1 0 28 0m106 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Hotshot</h3><p>Regional and long-haul load coordination for hotshot setups.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>03</span><small>STRAIGHT TRUCK</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M22 30h150v57H22zM172 50h32l27 27v10h-59zM52 88a14 14 0 1 0 28 0m110 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Box Truck</h3><p>Local and regional freight support for straight trucks.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>04</span><small>TEMP CONTROL</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M20 28h162v59H20zM182 50h26l28 27v10h-54zM52 88a14 14 0 1 0 28 0m115 0a14 14 0 1 0 28 0M100 41v33m-16-16h32" /></svg>
+            </div>
+            <h3>Reefer</h3><p>Temperature-controlled freight with detail-focused coordination.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>05</span><small>GENERAL FREIGHT</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M12 25h172v62H12zM184 49h28l28 28v10h-56zM49 88a14 14 0 1 0 28 0m129 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Dry Van</h3><p>High-volume general freight sourcing and dispatch support.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>06</span><small>OPEN DECK</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M12 72h173V45M185 45h30l27 27v15h-57zM46 88a14 14 0 1 0 28 0m126 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Flatbed</h3><p>Open-deck freight support for flexible, equipment-aware hauling.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>07</span><small>OPEN DECK</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M14 56h50v17h119V45M183 45h31l28 28v14h-59zM45 88a14 14 0 1 0 28 0m127 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Step Deck</h3><p>Load sourcing for lower-deck freight and specialized open-deck needs.</p>
+          </article>
+          <article class="equip-card">
+            <div class="equip-top"><span>08</span><small>TRAILER MOVE</small></div>
+            <div class="truck-icon">
+              <svg viewBox="0 0 260 110"><path d="M114 51h44l23 22v14h-67zM60 72h54M126 88a14 14 0 1 0 28 0m42 0a14 14 0 1 0 28 0" /></svg>
+            </div>
+            <h3>Power Only</h3><p>Trailer movement and power-only load coordination.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section" id="process">
+      <div class="container process-grid">
+        <div class="process-sticky">
+          <span class="section-code">[ 03 / THE WORKFLOW ]</span>
+          <h2>Simple for the driver.<br><em>Serious behind the scenes.</em></h2>
+          <p>Your operation stays in control while the dispatch process handles the moving pieces.</p>
+          <a href="#contact" class="text-btn">Start onboarding <span>↗</span></a>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-no">01</span>
+            <div><small>ONBOARD</small><h3>We learn your operating profile.</h3><p>Truck type, lanes, home-time needs, preferences and the freight you do — and do not — want.</p></div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-no">02</span>
+            <div><small>SOURCE</small><h3>We search with your truck in mind.</h3><p>Freight is filtered around equipment, lane, timing and your stated requirements.</p></div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-no">03</span>
+            <div><small>NEGOTIATE</small><h3>We work the broker conversation.</h3><p>Rate, details and terms are discussed clearly. You make the final load decision.</p></div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-no">04</span>
+            <div><small>COORDINATE</small><h3>We keep the trip organized.</h3><p>Pickup, delivery, confirmations, communication and paperwork support stay connected through the load.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-frame">
+        <div class="about-photo">
+          <img src="assets/office-premium.webp" alt="Fleet X Logistics dispatch office" />
+          <div class="about-overlay"></div>
+          <div class="photo-copy">
+            <span>FLEET X / OPERATIONS</span>
+            <h2>Built in the room<br>where dispatch actually happens.</h2>
+          </div>
+          <div class="photo-mark"><img src="assets/fleetx-mark.png" alt=""></div>
+        </div>
+
+        <div class="about-panel">
+          <span class="section-code">[ 04 / WHY FLEET X ]</span>
+          <h3>A premium dispatch experience should feel calm, clear and under control.</h3>
+          <p>That is the standard behind this workflow: fewer scattered conversations, more organized information, and a dispatch partner focused on the carrier’s operating preferences.</p>
+
+          <div class="value-list">
+            <div><span>01</span><strong>Carrier approval stays central.</strong><p>No pretending every load is a good load.</p></div>
+            <div><span>02</span><strong>One cleaner communication flow.</strong><p>Broker, trip and paperwork details stay connected.</p></div>
+            <div><span>03</span><strong>Built around equipment realities.</strong><p>The truck type shapes the search, not the other way around.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="container manifesto-inner">
+        <span class="manifesto-label">THE FLEET X STANDARD</span>
+        <h2>More signal.<br>Less noise.<br><em>More miles moving.</em></h2>
+        <div class="manifesto-side">
+          <p>Professional dispatching is not about making more calls. It is about making the right decisions, in the right order, with the right information.</p>
+          <a href="#contact" class="round-arrow" aria-label="Contact Fleet X">↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="contact-shell">
+          <div class="contact-left">
+            <span class="section-code">[ 05 / START ]</span>
+            <h2>Ready to put your next load on the board?</h2>
+            <p>Tell us your equipment and preferred lanes. The form prepares an email to Fleet X Logistics without needing a backend server.</p>
+            <div class="contact-meta">
+              <a id="emailLink" href="mailto:dispatch@yourcompany.com"><small>EMAIL</small><b id="emailText">dispatch@yourcompany.com</b></a>
+              <div><small>WEBSITE</small><b>GitHub Pages ready</b></div>
+            </div>
+          </div>
+
+          <form id="leadForm" class="lead-form">
+            <div class="input-grid">
+              <label><span>FULL NAME</span><input required name="name" placeholder="Your name"></label>
+              <label><span>PHONE</span><input name="phone" placeholder="Your phone number"></label>
+            </div>
+            <div class="input-grid">
+              <label><span>EMAIL</span><input required type="email" name="email" placeholder="you@example.com"></label>
+              <label><span>EQUIPMENT</span>
+                <select required name="equipment">
+                  <option value="">Select truck type</option>
+                  <option>Sprinter / Cargo Van</option><option>Hotshot</option><option>Box Truck</option>
+                  <option>Reefer</option><option>Dry Van</option><option>Flatbed</option>
+                  <option>Step Deck</option><option>Power Only</option><option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label><span>PREFERRED LANES</span><input name="lanes" placeholder="Example: TX → Midwest / Southeast"></label>
+            <label><span>MESSAGE</span><textarea name="message" rows="4" placeholder="Tell us about your operation"></textarea></label>
+            <button class="btn primary form-submit" type="submit">Prepare dispatch inquiry <span>↗</span></button>
+            <small class="form-note">Static-site friendly: opens your email app. Replace the placeholder email in <b>script.js</b> before publishing.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/fleetx-mark.png" alt="">
+        <div><b>FLEET X</b><span>LOGISTICS</span></div>
+      </div>
+      <p>Premium dispatch support for owner-operators and growing fleets.</p>
+      <div class="footer-nav">
+        <a href="#command">Services</a><a href="#equipment">Equipment</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Fleet X Logistics</span>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
